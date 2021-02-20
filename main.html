@@ -1,6 +1,11 @@
 <!doctype html>
 <html lang="en">
     <style>
+  .dropdown {
+    height: 200px;
+    max-height: 200px;
+    overflow-x: hidden;
+}    
     </style>
   <head>
     <!-- Required meta tags -->
@@ -18,10 +23,10 @@
     </div>
     <div class="container">
     <div class="dropdown text-center">
-        <button class="btn btn-secondary dropdown-toggle pre-scrollable" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+        <button class="btn btn-secondary dropdown-toggle pre-scrollable scroll-menu" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
           Select A State
         </button>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+        <ul class="dropdown-menu scrollable-menu" aria-labelledby="dropdownMenuButton1">
           <li><a class="dropdown-item" href="#">Alabama</a></li>
           <li><a class="dropdown-item" href="#">Alaska</a></li>
           <li><a class="dropdown-item" href="#">Arizona</a></li>
