@@ -1,8 +1,18 @@
 <!doctype html>
 <html lang="en">
     <style>
- .dropdown {
-}    
+.scrollable-menu {
+    height: auto;
+    max-height: 200px;
+    overflow-x: hidden;
+}
+.div-inline{
+    display:inline-block;
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
 * { box-sizing: border-box; }
 body {
   background: white;
@@ -475,8 +485,8 @@ body {
       
     </svg>
     <div id="stateInfo"></div>
-    <div class="container">
-        <div class="dropdown text-center">
+    <div class="div-inline">
+        <div class="dropdown text-center d-inline-block">
             <button class="btn btn-secondary dropdown-toggle pre-scrollable scroll-menu" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
               Select A State
             </button>
