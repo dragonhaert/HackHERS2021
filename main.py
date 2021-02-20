@@ -4,4 +4,4 @@
 # Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
 
 from crpapi import CRP
-crp = CRP(API_KEY)
+crp = CRP(38ffb1008d4475d261f18271e07e366e)
