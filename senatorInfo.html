@@ -13,7 +13,7 @@
 		<title>Contributions</title>
 
 
-
+		<script type="text/javascript" src="abbrev.js"></script>
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 		<script>
 			var state = window.location.search.slice(2).substring(0, 2);
@@ -77,7 +77,9 @@
 				}
 			})
 
-			var str3 = "https://www.googleapis.com/civicinfo/v2/representatives?address=" + state + "&levels=country&roles=legislatorUpperBody&key=AIzaSyBAdHtl2pMVHxKh73GNqo0-UorD2ufitRY";
+			stateName = abbrev[state];
+
+			var str3 = "https://www.googleapis.com/civicinfo/v2/representatives?address=" + stateName + "&levels=country&roles=legislatorUpperBody&key=AIzaSyBAdHtl2pMVHxKh73GNqo0-UorD2ufitRY";
 
 				$.ajax({
 					url: str3,
@@ -86,6 +88,15 @@
 
 						var p1 = result.officials[0].photoUrl;
 						var p2 = result.officials[1].photoUrl;
+						if(!p1){ 
+							$('.photo1').append("No photo available");
+							$('.photo1').css({ 'text-align': 'center', 'padding': '20px 0', 'color': 'grey' });
+						}
+						if (!p2) { 
+							$('.photo2').append("No photo available"); 
+							$('.photo2').css({ 'text-align': 'center', 'padding': '20px 0', 'color': 'grey' });
+						}
+
 						$('.photo1').append($('<img>', { id: 'Portrait', src: p1 }));
 						$('.photo1').find("img:first").css({ 'width': '150px', 'margin-left': 'auto', 'margin-right': 'auto', 'display': 'block'});
 						$('.photo2').append($('<img>', { id: 'Portrait', src: p2 }));

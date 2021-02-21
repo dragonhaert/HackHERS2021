@@ -80,8 +80,8 @@
 					type: "GET",
 					success: function (result) {
 
-						var p1 = result.officials[0].photoUrl;
-						var p2 = result.officials[1].photoUrl;
+						var p1 = result.officials[1].photoUrl;
+						var p2 = result.officials[0].photoUrl;
 						$('.photo1').append($('<img>', { id: 'Portrait', src: p1 }));
 						$('.photo1').find("img:first").css({ 'width': '150px', 'margin-left': 'auto', 'margin-right': 'auto', 'display': 'block'});
 						$('.photo2').append($('<img>', { id: 'Portrait', src: p2 }));
