@@ -13,11 +13,11 @@
 		<title>Lobbyists</title>
 			<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 		<script>
-			var state = window.location.search.slice(-2);
-			var s1 = "N00007360";
-			var s2 = "N00036154";
+			var state = window.location.search.slice(2).substring(0,2);
+			var s1 = window.location.search.slice(5).substring(0,9);
+			var s2 = window.location.search.slice(15).substring(0,9);
 			var str1 = "https://www.opensecrets.org/api/?method=candContrib&cid=" + s1 + "&cycle=2020&output=json&apikey=94fa7641a896614ab429750e81691137";
-			var str2 = "https://www.opensecrets.org/api/?method=candContrib&cid=" + s1 + "&cycle=2020&output=json&apikey=94fa7641a896614ab429750e81691137";
+			var str2 = "https://www.opensecrets.org/api/?method=candContrib&cid=" + s2 + "&cycle=2020&output=json&apikey=94fa7641a896614ab429750e81691137";
 
 			var data;
 			$.ajax({
@@ -29,7 +29,7 @@
 					data = JSON.parse(result);
 					data = data.response.contributors;
 					console.log(data);
-					var table = $("<table><tr><th>"+ data["@attributes"].cand_name + "Lobbying Info</th></tr>");
+					var table = $("<table><tr><th>"+ data["@attributes"].cand_name + "</th><th>Lobbying Info</th></tr>");
 
 					table.append("<tr><td>Organization:</td><td> Amount from PACS</td><td>Amount from Individuals</td></tr>");
 					var i;
@@ -37,12 +37,7 @@
 						table.append("<tr><td>" + data.contributor[i]["@attributes"].org_name + "</td><td>" +  data.contributor[i]["@attributes"].pacs + "</td><td>" + data.contributor[i]["@attributes"].indivs + "</td></tr>");
 					}
 					
-
-					$("#message").html(table);
-
-
-					
-					
+					$("#message").html(table);	
 				},
 				error: function(error){
 					console.log(error)
@@ -55,23 +50,18 @@
 					success: function (result) {
 
 						// console.log(result);
-						data = JSON.parse(result);
-						data = data.response.contributors;
-						console.log(data);
-						var table2 = $("<table><tr><th>" + data["@attributes"].cand_name + "Lobbying Info</th></tr>");
+						data2 = JSON.parse(result);
+						data2 = data2.response.contributors;
+						console.log(data2);
+						var table2 = $("<table><tr><th>" + data2["@attributes"].cand_name + "</th><th>Lobbying Info</th></tr>");
 
 						table2.append("<tr><td>Organization:</td><td> Amount from PACS</td><td>Amount from Individuals</td></tr>");
 						var i;
 						for (i = 0; i < 10; i++) {
-							table.append("<tr><td>" + data.contributor[i]["@attributes"].org_name + "</td><td>" + data.contributor[i]["@attributes"].pacs + "</td><td>" + data.contributor[i]["@attributes"].indivs + "</td></tr>");
+							table2.append("<tr><td>" + data2.contributor[i]["@attributes"].org_name + "</td><td>" + data2.contributor[i]["@attributes"].pacs + "</td><td>" + data2.contributor[i]["@attributes"].indivs + "</td></tr>");
 						}
 
-
 						$("#message2").html(table2);
-
-
-
-
 					},
 					error: function (error) {
 						console.log(error)
