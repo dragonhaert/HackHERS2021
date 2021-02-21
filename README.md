@@ -1,6 +1,6 @@
 # HackHERS2021 Project - NAME
 
-BLANK is a project created for HackHERS 2021. It displays to the user senator profiles by state, along with their top donors and funding streams with short explanations surrounding these.
+BLANK is a project created for HackHERS 2021. It displays to the user senator profiles by state, along with their top donors and funding streams with short explanations surrounding these. BLANK aims to educate its users on the contributers for their elected officials and the impact of this on their decisions.
 
 ![Commits](https://img.shields.io/github/last-commit/dragonhaert/HackHERS2021/main)
 ![Maintained](https://img.shields.io/maintenance/yes/2021)
