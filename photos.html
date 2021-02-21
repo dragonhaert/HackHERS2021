@@ -1,51 +1,54 @@
 <!doctype html>
 <html lang="en">
 
-	<head>
-		<!-- Required meta tags -->
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<!-- Bootstrap CSS -->
-		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
-			integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+	<!-- Bootstrap CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+		crossorigin="anonymous"></script>
+	<title>Contributions</title>
 
-		<title>Photos</title>
-        </head>
-<script src="https://apis.google.com/js/api.js"></script>
-<script>
-  /**
-   * Sample JavaScript code for civicinfo.representatives.representativeInfoByAddress
-   * See instructions for running APIs Explorer code samples locally:
-   * https://developers.google.com/explorer-help/guides/code_samples#javascript
-   */
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script>
+		var state = window.location.search.slice(2).substring(0, 2);
+		var str3 = "https://www.googleapis.com/civicinfo/v2/representatives?address="+ state + "&levels=country&roles=legislatorUpperBody&key=AIzaSyBAdHtl2pMVHxKh73GNqo0-UorD2ufitRY";
 
-  function loadClient() {
-    gapi.client.setApiKey("AIzaSyBAdHtl2pMVHxKh73GNqo0-UorD2ufitRY");
-    return gapi.client.load("https://civicinfo.googleapis.com/$discovery/rest?version=v2")
-        .then(function() { console.log("GAPI client loaded for API"); },
-              function(err) { console.error("Error loading GAPI client for API", err); });
-  }
-  // Make sure the client is loaded before calling this method.
-  function execute() {
-    return gapi.client.civicinfo.representatives.representativeInfoByAddress({
-      "address": "New Jersey",
-      "levels": [
-        "country"
-      ],
-      "roles": [
-        "legislatorUpperBody"
-      ]
-    })
-        .then(function(response) {
-                // Handle the results here (response.result has the parsed body).
-                console.log("Response", response);
-              },
-              function(err) { console.error("Execute error", err); });
-  }
-  gapi.load("client");
-</script>
-<button onclick="loadClient()">load</button>
-<button onclick="execute()">execute</button>
+		var data;
+		$.ajax({
+			url: str3,
+			type: "GET",
+			success: function (result) {
+
+				var photo1 = result.officials[0].photoUrl;
+				var photo2 = result.officials[1].photoUrl;
+				$("#write").append(photo1 + "<p>" + photo2);
+				
+
+			},
+			error: function (error) {
+				console.log(error)
+			}
+		})
+
+
+
+
+	</script>
+
+
+
+
+</head>
+
+<body>
+	<div id="write"></div>
+
+</body>
 
 </html>
