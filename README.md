@@ -3,6 +3,7 @@
 BLANK is a project created for HackHERS 2021. It displays to the user senator profiles by state, along with their top donors and funding streams with short explanations surrounding these.
 
 ![Commits](https://img.shields.io/github/last-commit/dragonhaert/HackHERS2021/main)
+![Maintained](https://img.shields.io/maintenance/yes/2021)
 
 ## Usage
 
