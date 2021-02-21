@@ -29,6 +29,8 @@
 					data = data.response.contributors;
 					
 					$(".name1").append("<h1>" + data["@attributes"].cand_name + " - " + state + "</h1>");
+					$('.name1').css({ 'text-align': 'center' });
+
 
 					var i;
 					for (i = 0; i < 10; i++) {
@@ -54,6 +56,7 @@
 					data2 = data2.response.contributors;
 
 					$(".name2").append("<h1>" + data2["@attributes"].cand_name + " - " + state + "</h1>");
+					$('.name2').css({'text-align': 'center'});
 
 					var i;
 					for (i = 0; i < 10; i++) {
@@ -70,6 +73,30 @@
 				}
 			})
 
+			var str3 = "https://www.googleapis.com/civicinfo/v2/representatives?address=" + state + "&levels=country&roles=legislatorUpperBody&key=AIzaSyBAdHtl2pMVHxKh73GNqo0-UorD2ufitRY";
+
+				$.ajax({
+					url: str3,
+					type: "GET",
+					success: function (result) {
+
+						var p1 = result.officials[0].photoUrl;
+						var p2 = result.officials[1].photoUrl;
+						$('.photo1').append($('<img>', { id: 'Portrait', src: p1 }));
+						$('.photo1').find("img:first").css({ 'width': '150px', 'margin-left': 'auto', 'margin-right': 'auto', 'display': 'block'});
+						$('.photo2').append($('<img>', { id: 'Portrait', src: p2 }));
+						$('.photo2').find("img:first").css({ 'width': '150px', 'margin-left': 'auto', 'margin-right': 'auto', 'display': 'block' });
+
+
+
+
+
+					},
+					error: function (error) {
+						console.log(error)
+					}
+				})
+
 
 
 
@@ -82,9 +109,6 @@
       <body>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="main.html">PLACE</a>
-		<script>
-			$(".navbar-brand").text(state);
-		</script>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -105,6 +129,7 @@
         <div class="container-fluid"></div>
         <div class="col-sm-6">
 			<div class="name1"></div>
+			<div class="photo1"></div>
 
 
         <table class="table">
@@ -122,6 +147,8 @@
       
       <div class="col-sm-6">
 		<div class="name2"></div>
+		<div class="photo2"></div>
+
 
 
         <!--Make senator name and state populate from lobbyists.html-->
