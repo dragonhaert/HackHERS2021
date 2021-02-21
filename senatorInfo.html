@@ -12,12 +12,12 @@
 
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 		<script>
-			var state = window.location.search.slice(-2);
-			var s1 = "N00007360";
-			var s2 = "N00036154";
+			var state = window.location.search.slice(2).substring(0, 2);
+			var s1 = window.location.search.slice(5).substring(0, 9);
+			var s2 = window.location.search.slice(15).substring(0, 9);
 			var str1 = "https://www.opensecrets.org/api/?method=candContrib&cid=" + s1 + "&cycle=2020&output=json&apikey=94fa7641a896614ab429750e81691137";
 			var str2 = "https://www.opensecrets.org/api/?method=candContrib&cid=" + s2 + "&cycle=2020&output=json&apikey=94fa7641a896614ab429750e81691137";
-
+			
 			var data;
 			$.ajax({
 				url: str1,
@@ -27,7 +27,6 @@
 					// console.log(result);
 					data = JSON.parse(result);
 					data = data.response.contributors;
-					console.log(data);
 					
 					$(".name1").append("<h1>" + data["@attributes"].cand_name + " - " + state + "</h1>");
 
@@ -53,7 +52,6 @@
 					// console.log(result);
 					data2 = JSON.parse(result);
 					data2 = data2.response.contributors;
-					console.log(data2);
 
 					$(".name2").append("<h1>" + data2["@attributes"].cand_name + " - " + state + "</h1>");
 
@@ -83,14 +81,17 @@
       </head>
       <body>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">NAME HERE</a>
+        <a class="navbar-brand" href="main.html">PLACE</a>
+		<script>
+			$(".navbar-brand").text(state);
+		</script>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item active">
-              <a class="nav-link" href="/main.html">Home</a>
+              <a class="nav-link" href="main.html">Home</a>
             </li>
           </ul>
         </div>
