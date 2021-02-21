@@ -80,8 +80,8 @@
 					type: "GET",
 					success: function (result) {
 
-						var p1 = result.officials[0].photoUrl;
-						var p2 = result.officials[1].photoUrl;
+						var p1 = result.officials[1].photoUrl;
+						var p2 = result.officials[0].photoUrl;
 						$('.photo1').append($('<img>', { id: 'Portrait', src: p1 }));
 						$('.photo1').find("img:first").css({ 'width': '150px', 'margin-left': 'auto', 'margin-right': 'auto', 'display': 'block'});
 						$('.photo2').append($('<img>', { id: 'Portrait', src: p2 }));
@@ -120,7 +120,8 @@
           </ul>
         </div>
       </nav>
-      <div class="padded" style="padding:50px">
+        
+	<div class="padded" style="padding:50px">
       <div class="container p-3 my-3 bg-dark text-white text-center">
         <h1>Who's lobbying your senator?</h1>
         </div>
@@ -207,5 +208,5 @@
         <li><b>Service Employees International Union:</b>
             Service Employees International Union, or SEIU, is a labor union representing healthcare, the public sector and property services across the United States. SEIU supports Cory Booker and his positions on minimum wage, unions, universal healthcare, immigration reform, and the Green New Deal.</li>
       </ul>
-     </div></div></div></div></body>
+     </div></div></div></body></html></div>
       </html>
