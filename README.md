@@ -7,8 +7,8 @@ BLANK is a project created for HackHERS 2021. It displays to the user senator pr
 
 ## Usage
 
-BLANK utilizes a map and/or a dropdown menu to display to the user states which they can select.
-BLANK is written using HTML, CSS, Javascript, and Bootstrap. APIs include OpenSecrets and Google Civic Information. To demo and for more information vist WEBSITE
+* BLANK utilizes a map or a dropdown menu to display to the user states which they can select.
+* BLANK is written using HTML, CSS, Javascript, and Bootstrap. APIs include OpenSecrets and Google Civic Information. To demo and for more information vist WEBSITE
 
 ## Authors
 
