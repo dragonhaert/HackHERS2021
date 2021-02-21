@@ -3,7 +3,7 @@
     <style>
 .scrollable-menu {
     height: auto;
-    max-height: 200px;
+    max-height: 400px;
     overflow-x: hidden;
 }
 .div-inline{
@@ -12,16 +12,23 @@
 .dropdown {
   position: relative;
   display: inline-block;
+  padding-left: 1000px;
+  padding-top: 50px;
+  position:absolute;
+  
+  
 }
+
 * { box-sizing: border-box; }
 body {
   background: white;
   color: #fff;
   font-family: Avenir, Calibri, sans-serif;
-  padding: 0 0 150px 0px;
+  padding: 0 0 0px 0px;
 }
 #US-map { 
   fill: rgb(65, 126, 186);
+  
 }
 #US-map g {
   transition: .3s;
@@ -51,6 +58,68 @@ body {
     <div class="container text-center">
         <h3>Click a state on the map or from the drop down to learn more.</h3>
     </div> 
+    <div class="div-inline">
+      <div class="dropdown text-center d-inline-block">
+          <button class="btn btn-secondary dropdown-toggle pre-scrollable scroll-menu" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            Select A State
+          </button>
+          <ul class="dropdown-menu scrollable-menu" aria-labelledby="dropdownMenuButton1">
+            <li><a class="dropdown-item" href="#">Alabama</a></li>
+            <li><a class="dropdown-item" href="#">Alaska</a></li>
+            <li><a class="dropdown-item" href="#">Arizona</a></li>
+            <li><a class="dropdown-item" href="#">Arkansas</a></li>
+            <li><a class="dropdown-item" href="#">California</a></li>
+            <li><a class="dropdown-item" href="#">Colorado</a></li>
+            <li><a class="dropdown-item" href="#">Connecticut</a></li>
+            <li><a class="dropdown-item" href="#">Deleware</a></li>
+            <li><a class="dropdown-item" href="#">District of Columbia</a></li>
+            <li><a class="dropdown-item" href="#">Florida</a></li>
+            <li><a class="dropdown-item" href="#">Georgia</a></li>
+            <li><a class="dropdown-item" href="#">Hawaii</a></li>
+            <li><a class="dropdown-item" href="#">Idaho</a></li>
+            <li><a class="dropdown-item" href="#">Illinois</a></li>
+            <li><a class="dropdown-item" href="#">Indiana</a></li>
+            <li><a class="dropdown-item" href="#">Iowa</a></li>
+            <li><a class="dropdown-item" href="#">Kansas</a></li>
+            <li><a class="dropdown-item" href="#">Kentucky</a></li>
+            <li><a class="dropdown-item" href="#">Lousiana</a></li>
+            <li><a class="dropdown-item" href="#">Maine</a></li>
+            <li><a class="dropdown-item" href="#">Maryland</a></li>
+            <li><a class="dropdown-item" href="#">Massachusetts</a></li>
+            <li><a class="dropdown-item" href="#">Michigan</a></li>
+            <li><a class="dropdown-item" href="#">Minnesota</a></li>
+            <li><a class="dropdown-item" href="#">Mississippi</a></li>
+            <li><a class="dropdown-item" href="#">Missouri</a></li>
+            <li><a class="dropdown-item" href="#">Montana</a></li>
+            <li><a class="dropdown-item" href="#">Montana</a></li>
+            <li><a class="dropdown-item" href="#">Nebraska</a></li>
+            <li><a class="dropdown-item" href="#">Nevada</a></li>
+            <li><a class="dropdown-item" href="#">New Hampshire</a></li>
+            <li><a class="dropdown-item" href="#">New Jersey</a></li>
+            <li><a class="dropdown-item" href="#">New Mexico</a></li>
+            <li><a class="dropdown-item" href="#">New York</a></li>
+            <li><a class="dropdown-item" href="#">North Carolina</a></li>
+            <li><a class="dropdown-item" href="#">North Dakota</a></li>
+            <li><a class="dropdown-item" href="#">Ohio</a></li>
+            <li><a class="dropdown-item" href="#">Oklahoma</a></li>   
+            <li><a class="dropdown-item" href="#">Oregon</a></li>
+            <li><a class="dropdown-item" href="#">Pennsylvania</a></li>
+            <li><a class="dropdown-item" href="#">Rhode Island</a></li>   
+            <li><a class="dropdown-item" href="#">South Carolina</a></li>
+            <li><a class="dropdown-item" href="#">South Dakota</a></li>
+            <li><a class="dropdown-item" href="#">Tennessee</a></li>
+            <li><a class="dropdown-item" href="#">Texas</a></li>
+            <li><a class="dropdown-item" href="#">Utah</a></li>
+            <li><a class="dropdown-item" href="#">Vermont</a></li>
+            <li><a class="dropdown-item" href="#">Virginia</a></li>
+            <li><a class="dropdown-item" href="#">Washington</a></li>
+            <li><a class="dropdown-item" href="#">West Virginia</a></li>
+            <li><a class="dropdown-item" href="#">Wisconsin</a></li>
+            <li><a class="dropdown-item" href="#">Wyoming</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
     <div style="text-align:center;">
     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-300 0 2079 900" id="US-map"> 
         <a href="lobbyists.html?=AL"><g id="Alabama">
@@ -485,66 +554,5 @@ body {
       
     </svg>
     <div id="stateInfo"></div>
-    <div class="div-inline">
-        <div class="dropdown text-center d-inline-block">
-            <button class="btn btn-secondary dropdown-toggle pre-scrollable scroll-menu" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-              Select A State
-            </button>
-            <ul class="dropdown-menu scrollable-menu" aria-labelledby="dropdownMenuButton1">
-              <li><a class="dropdown-item" href="lobbyists.html?=AL">Alabama</a></li>
-              <li><a class="dropdown-item" href="lobbyists.html?=AK">Alaska</a></li>
-              <li><a class="dropdown-item" href="lobbyists.html?=AZ">Arizona</a></li>
-              <li><a class="dropdown-item" href="lobbyists.html?=AR">Arkansas</a></li>
-              <li><a class="dropdown-item" href="lobbyists.html?=CA">California</a></li>
-              <li><a class="dropdown-item" href="lobbyists.html?=CO">Colorado</a></li>
-              <li><a class="dropdown-item" href="lobbyists.html?=CT">Connecticut</a></li>
-              <li><a class="dropdown-item" href="lobbyists.html?=DE">Deleware</a></li>
-              <li><a class="dropdown-item" href="lobbyists.html?=DC">District of Columbia</a></li>
-              <li><a class="dropdown-item" href="lobbyists.html?=FL">Florida</a></li>
-              <li><a class="dropdown-item" href="lobbyists.html?=GA">Georgia</a></li>
-              <li><a class="dropdown-item" href="lobbyists.html?=HI">Hawaii</a></li>
-              <li><a class="dropdown-item" href="lobbyists.html?=ID">Idaho</a></li>
-              <li><a class="dropdown-item" href="lobbyists.html?=IL">Illinois</a></li>
-              <li><a class="dropdown-item" href="lobbyists.html?=IN">Indiana</a></li>
-              <li><a class="dropdown-item" href="lobbyists.html?=IA">Iowa</a></li>
-              <li><a class="dropdown-item" href="lobbyists.html?=KS">Kansas</a></li>
-              <li><a class="dropdown-item" href="lobbyists.html?=KY">Kentucky</a></li>
-              <li><a class="dropdown-item" href="lobbyists.html?=LA">Lousiana</a></li>
-              <li><a class="dropdown-item" href="lobbyists.html?=ME">Maine</a></li>
-              <li><a class="dropdown-item" href="lobbyists.html?=MD">Maryland</a></li>
-              <li><a class="dropdown-item" href="lobbyists.html?=MA">Massachusetts</a></li>
-              <li><a class="dropdown-item" href="lobbyists.html?=MI">Michigan</a></li>
-              <li><a class="dropdown-item" href="lobbyists.html?=MN">Minnesota</a></li>
-              <li><a class="dropdown-item" href="lobbyists.html?=MS">Mississippi</a></li>
-              <li><a class="dropdown-item" href="lobbyists.html?=MO">Missouri</a></li>
-              <li><a class="dropdown-item" href="lobbyists.html?=MT">Montana</a></li>
-              <li><a class="dropdown-item" href="lobbyists.html?=NE">Nebraska</a></li>
-              <li><a class="dropdown-item" href="lobbyists.html?=NV">Nevada</a></li>
-              <li><a class="dropdown-item" href="lobbyists.html?=NH">New Hampshire</a></li>
-              <li><a class="dropdown-item" href="lobbyists.html?=NJ">New Jersey</a></li>
-              <li><a class="dropdown-item" href="lobbyists.html?=NM">New Mexico</a></li>
-              <li><a class="dropdown-item" href="lobbyists.html?=NY">New York</a></li>
-              <li><a class="dropdown-item" href="lobbyists.html?=NC">North Carolina</a></li>
-              <li><a class="dropdown-item" href="lobbyists.html?=ND">North Dakota</a></li>
-              <li><a class="dropdown-item" href="lobbyists.html?=OH">Ohio</a></li>
-              <li><a class="dropdown-item" href="lobbyists.html?=OK">Oklahoma</a></li>   
-              <li><a class="dropdown-item" href="lobbyists.html?=OR">Oregon</a></li>
-              <li><a class="dropdown-item" href="lobbyists.html?=PA">Pennsylvania</a></li>
-              <li><a class="dropdown-item" href="lobbyists.html?=RI">Rhode Island</a></li>   
-              <li><a class="dropdown-item" href="lobbyists.html?=SC">South Carolina</a></li>
-              <li><a class="dropdown-item" href="lobbyists.html?=SD">South Dakota</a></li>
-              <li><a class="dropdown-item" href="lobbyists.html?=TN">Tennessee</a></li>
-              <li><a class="dropdown-item" href="lobbyists.html?=TX">Texas</a></li>
-              <li><a class="dropdown-item" href="lobbyists.html?=UT">Utah</a></li>
-              <li><a class="dropdown-item" href="lobbyists.html?=VT">Vermont</a></li>
-              <li><a class="dropdown-item" href="lobbyists.html?=VA">Virginia</a></li>
-              <li><a class="dropdown-item" href="lobbyists.html?=WA">Washington</a></li>
-              <li><a class="dropdown-item" href="lobbyists.html?=WV">West Virginia</a></li>
-              <li><a class="dropdown-item" href="lobbyists.html?=WI">Wisconsin</a></li>
-              <li><a class="dropdown-item" href="lobbyists.html?=WY">Wyoming</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
     </body>
     </html>
