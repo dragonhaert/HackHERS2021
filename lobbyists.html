@@ -12,13 +12,96 @@
 
 		<title>Lobbyists</title>
 			<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+		<script>
+			var state = window.location.search.slice(-2);
+			var s1 = "N00007360";
+			var s2 = "N00036154";
+			var str1 = "https://www.opensecrets.org/api/?method=candContrib&cid=" + s1 + "&cycle=2020&output=json&apikey=94fa7641a896614ab429750e81691137";
+			var str2 = "https://www.opensecrets.org/api/?method=candContrib&cid=" + s1 + "&cycle=2020&output=json&apikey=94fa7641a896614ab429750e81691137";
+
+			var data;
+			$.ajax({
+				url: str1,
+				type: "GET",
+				success: function(result){
+
+					// console.log(result);
+					data = JSON.parse(result);
+					data = data.response.contributors;
+					console.log(data);
+					var table = $("<table><tr><th>"+ data["@attributes"].cand_name + "Lobbying Info</th></tr>");
+
+					table.append("<tr><td>Organization:</td><td> Amount from PACS</td><td>Amount from Individuals</td></tr>");
+					var i;
+					for (i = 0; i < 10; i++) {
+						table.append("<tr><td>" + data.contributor[i]["@attributes"].org_name + "</td><td>" +  data.contributor[i]["@attributes"].pacs + "</td><td>" + data.contributor[i]["@attributes"].indivs + "</td></tr>");
+					}
+					
+
+					$("#message").html(table);
+
+
+					
+					
+				},
+				error: function(error){
+					console.log(error)
+				}
+			})
+
+			$.ajax({
+					url: str2,
+					type: "GET",
+					success: function (result) {
+
+						// console.log(result);
+						data = JSON.parse(result);
+						data = data.response.contributors;
+						console.log(data);
+						var table2 = $("<table><tr><th>" + data["@attributes"].cand_name + "Lobbying Info</th></tr>");
+
+						table2.append("<tr><td>Organization:</td><td> Amount from PACS</td><td>Amount from Individuals</td></tr>");
+						var i;
+						for (i = 0; i < 10; i++) {
+							table.append("<tr><td>" + data.contributor[i]["@attributes"].org_name + "</td><td>" + data.contributor[i]["@attributes"].pacs + "</td><td>" + data.contributor[i]["@attributes"].indivs + "</td></tr>");
+						}
+
+
+						$("#message2").html(table2);
+
+
+
+
+					},
+					error: function (error) {
+						console.log(error)
+					}
+			})
+			
+			
+
+
+		</script>
 	</head>
 
 <body>
 	<p id="write">state is: </p>
+	<div id="message"></div>
+	<div id="message2"></div>
 </body>
+<!--
 
-<script>document.getElementById("write").innerHTML += window.location.search.slice(-2);</script>
+<script>document.getElementById("write").innerHTML += data.cand_name;</script>
+<script>document.getElementById("write").innerHTML += "<br/>link is: ";</script>
+<script>document.getElementById("write").innerHTML += str;</script>
+<script>document.getElementById("write").innerHTML += "<br/>request is: ";</script>
+<script>document.getElementById("write").innerHTML += request;</script> 
+<script>document.getElementById("write").innerHTML += "<br/>response is: ";</script>
+<script>document.getElementById("write").innerHTML += data;</script>
+
+	
+-->
+
 
 
 </html>
