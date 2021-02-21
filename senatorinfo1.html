@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+        <title>Contributions</title>
+
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+		<script>
+			var state = window.location.search.slice(2).substring(0, 2);
+			var s1 = window.location.search.slice(5).substring(0, 9);
+			var s2 = window.location.search.slice(15).substring(0, 9);
+			var str1 = "https://www.opensecrets.org/api/?method=candContrib&cid=" + s1 + "&cycle=2020&output=json&apikey=94fa7641a896614ab429750e81691137";
+			var str2 = "https://www.opensecrets.org/api/?method=candContrib&cid=" + s2 + "&cycle=2020&output=json&apikey=94fa7641a896614ab429750e81691137";
+			
+			var data;
+			$.ajax({
+				url: str1,
+				type: "GET",
+				success: function (result) {
+
+					// console.log(result);
+					data = JSON.parse(result);
+					data = data.response.contributors;
+					
+					$(".name1").append("<h1>" + data["@attributes"].cand_name + " - " + state + "</h1>");
+
+					var i;
+					for (i = 0; i < 10; i++) {
+						$(".start1").append("<tr><td>" + data.contributor[i]["@attributes"].org_name + "</td><td>$" + data.contributor[i]["@attributes"].pacs + "</td><td>$" + data.contributor[i]["@attributes"].indivs + "</td></tr>");
+					}
+
+
+
+
+
+				},
+				error: function (error) {
+					console.log(error)
+				}
+			})
+			$.ajax({
+				url: str2,
+				type: "GET",
+				success: function (result) {
+
+					// console.log(result);
+					data2 = JSON.parse(result);
+					data2 = data2.response.contributors;
+
+					$(".name2").append("<h1>" + data2["@attributes"].cand_name + " - " + state + "</h1>");
+
+					var i;
+					for (i = 0; i < 10; i++) {
+						$(".start2").append("<tr><td>" + data2.contributor[i]["@attributes"].org_name + "</td><td>$" + data2.contributor[i]["@attributes"].pacs + "</td><td>$" + data2.contributor[i]["@attributes"].indivs + "</td></tr>");
+					}
+
+
+
+
+
+				},
+				error: function (error) {
+					console.log(error)
+				}
+			})
+
+
+
+
+		</script>
+
+
+
+
+      </head>
+      <body>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="main.html">PLACE</a>
+		<script>
+			$(".navbar-brand").text(state);
+		</script>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" href="main.html">Home</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+        
+      <div class="container p-3 my-3 bg-dark text-white text-center">
+        <h1>Who's lobbying your senator?</h1>
+        </div>
+
+        <div class="row">
+        <div class="container-fluid"></div>
+        <div class="col-sm-6">
+			<div class="name1"></div>
+
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">PACS Amount Contributed</th>
+              <th scope="col">Individual Amount Contributed</th>
+            </tr>
+          </thead>
+          <tbody class="start1">
+          </tbody>
+        </table>
+      </div>
+      
+      <div class="col-sm-6">
+		<div class="name2"></div>
+ 
+
+        <!--Make senator name and state populate from lobbyists.html-->
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">PACS Amount Contributed</th>
+              <th scope="col">Individual Amount Contributed</th>
+            </tr>
+          </thead>
+          <tbody class="start2">
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            Cory Booker
+                - United Airlines Holdings
+                   On May 2nd, 2017, United Airlines was called to testify before congress due to poor customer service. American Airlines, Southwest Airlines, and Alaska Airlines joined them in testifying. This same day, Senators Cory Booker and Sherrod Brown sent letters to the CEOs of American, Alaska, Allegiant, Delta, Frontier, Hawaiian, JetBlue, Spirit, Southwest, and United Airlines to urge them to improve the pay and benefits of their subcontractor workforce to improve quality for all. In recent years, airlines have outsourced many of their job positions. Booker believes that airline regulations on these subcontracted employees is too high, while the safety, pay and benefits are too low. 
+                - Bain Capital
+                   Bain Capital is an American private investment firm based in Boston, Massachusetts. In 2012, a disagreement between Booker, Obama, and Romney started after Obama claimed that Romney's time at Bain Capital resulted in job loss, not job gain like Romney claimed. Booker came to the defense of Romney, calling Obama's claims "nauseating." 
+                - Comcast Corp
+                   In 2015, TV personality Byron Allen sued Charter, who operates Spectrum TV and Comcast Corps, over racial discrimination citing that his race was the reason the cable companies refused to distribute his channels. In 2019, Senators Booker and Kamala Harris, both members of the Congressional Black Caucus, spoke out against the Trump Administration's alliance with Comcast regarding the Supreme Court case in a brief.
+                - Lyft Inc
+                   On May 8th, 2019, Senator Booker spoke in support of strikers and boycotters of Uber and Lyft. Booker stated, "I support Uber and Lyft drivers in their strike today as they say enough to unfair wages and mistreatment."
+                - Service Employees International Union
+                   Service Employees International Union, or SEIU, is a labor union representing healthcare, the public sector and property services across the United States. SEIU supports Cory Booker and his positions on minimum wage, unions, universal healthcare, immigration reform, and the Green New Deal.
+        </div>
+        <div class="col">
+            Bob Menendez 
+- General Atomics
+	On November 18th, 2020, Bob Mendendez and other senators announce a resolution to block Donald Trump's $23 billion sale of arms to the United Arab Emirates. Suppliers who would be imapcted by this resolution include defense companies like General Atomics, who is one of Mendendez's top donators of 2015-2020.
+- Miami International Holdings
+	On March 11th, 2015, Senators Bob Menendez and Jack Reed introduced the Stop Illegal Insider Trading Act to establish a clear statutory prohibition against insider trading. Insider trading is the trading of a public company's stock or other securities based on material, nonpublic information about the company. Miami International Holdings is a stock exchange holding company servicing New Jersey and Florida; headquartered in Princeton, NJ and ran by Thomas P. Gallagher.
+- Daybreak Express
+	In 2014, after three fatal truck crashes in New Jersey, including one where the driver had not slept in over 24 hours, Senators Bob Menendez and Cory Booker sought to repeal a Senate amendment urged by the trucking industry that would decrease driving limits on truckers. This would create stricter laws surrounding rest and reduced fatigue for truck drivers. Daybreak Express, a trucking company servicing New Jersey and New York, is one of Menendez's top donors of 2015-2020. 
+- Inserra Supermarkets
+	In 2011, Shoprite sent an open letter to Senators Menendez and Lautenberg of NJ to support debit card swipe fee reforms stating that debit card swipe fees are one of their largest growing costs faced. This letter was signed by Lawrence Inserra Jr. who is the owner of Inserra Supermarkets, one of New Jersey's largest operators of Shoprite Supermarkets. Inserra Supermarkets owns nearly two dozen supermarkets in North Jersey and New York. Between 2015-2020, Inserra Supermarkets was one of Menendez's top donors, including donations to his legal fund. Inserra Jr. is also the Chairman of Board of the Hackensack University Medical Center Foundation, which Menendez has visited and awarded grants to.
+- Public Service Enterprise Group
+	Public Service Enterprise Group, more commonly known as PSE&G, is an energy company headquartered in Newark, NJ. Menedez is a proponent of clean energy, climate change action, and regulations of the energy industry.
+
+        </div>
+      </div>
+   </div>
+      </body>
+      </html>
